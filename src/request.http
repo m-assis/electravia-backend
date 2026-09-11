@@ -1,0 +1,54 @@
+### 1. Cadastrar primeira estação (ET-SP-001)
+POST http://localhost:8080/api/estacoes
+Content-Type: application/json
+
+{
+  "codigoEstacao": "ET-SP-001",
+  "localizacao": "Av. Paulista, 1000 - São Paulo",
+  "statusOperacional": "ONLINE"
+}
+
+### 2. Cadastrar segunda estação (ET-SP-002)
+POST http://localhost:8080/api/estacoes
+Content-Type: application/json
+
+{
+  "codigoEstacao": "ET-SP-002",
+  "localizacao": "Av. Rebouças, 500 - São Paulo",
+  "statusOperacional": "ONLINE"
+}
+
+### 3. Listar estações cadastradas
+GET http://localhost:8080/api/estacoes
+
+### 4. Cadastrar recarga vinculada à Estação ID 1
+POST http://localhost:8080/api/recargas
+Content-Type: application/json
+
+{
+  "idCliente": "CLI-9988",
+  "kwhConsumido": 45.5,
+  "valorTotal": 91.00,
+  "estacao": {
+    "id": 1
+  }
+}
+
+### 5. Cadastrar recarga vinculada à Estação ID 2
+POST http://localhost:8080/api/recargas
+Content-Type: application/json
+
+{
+  "idCliente": "CLI-5544",
+  "kwhConsumido": 30.0,
+  "valorTotal": 60.00,
+  "estacao": {
+    "id": 2
+  }
+}
+
+### 6. Listar todas as recargas cadastradas
+GET http://localhost:8080/api/recargas
+
+### 7. Analisar consumo das recargas com Inteligência Artificial (Gemini)
+GET http://localhost:8080/api/recargas/analise-ia
